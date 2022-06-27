@@ -1,0 +1,132 @@
+body {
+    background-color: beige;
+}
+
+h1 {
+    text-align: center;
+    color: teal;
+}
+
+form {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: teal;
+}
+
+thead {
+    background-color: teal;
+    color: white;
+    height: 40px;
+    font-size: large;
+}
+
+tbody {
+    height: 80px;
+    font-weight: bold;
+}
+
+#panneauScore {
+    visibility: hidden;
+    padding: 10px;
+    margin: 20px;
+    width: 95%;
+    column-width: auto;
+    text-align: center;
+}
+
+#panneauBoutons {
+    visibility: hidden;
+    display: grid;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    grid-template-areas: 
+        "j1 j1 j2 j2"
+        "pj1 pj1 pj2 pj2"
+        "pj1 pj1 pj2 pj2"
+        "mj1 mj1 mj2 mj2"
+        "mj1 mj1 mj2 mj2";
+}
+
+#graphe {
+    visibility: hidden;
+}
+
+#affNomJoueur1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: mediumseagreen;
+    margin: 0;
+    padding: 10px;
+    grid-area: j1;
+}
+
+#affNomJoueur2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color : steelblue;
+    margin: 0;
+    padding: 10px;
+    grid-area: j2;
+}
+
+#plusJoueur1 {
+    background-color: mediumseagreen;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    padding: 5px;
+    grid-area: pj1;
+    border-radius: 15px;
+}
+
+#moinsJoueur1 {
+    background-color: mediumseagreen;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    padding: 5px;
+    grid-area: mj1;
+    border-radius: 15px;
+}
+
+#plusJoueur2 {
+    background-color: steelblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    padding: 5px;
+    grid-area: pj2;
+    border-radius: 15px;
+}
+
+#moinsJoueur2 {
+    background-color: steelblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    padding: 5px;
+    grid-area: mj2;
+    border-radius: 15px;
+}

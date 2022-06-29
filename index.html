@@ -29,50 +29,40 @@
         </form>
     </div>
 
-    <div>
-        <table id="panneauScore">
-            <thead>
-              <tr>
-                <th>Noms des joueurs</th>
-                <th>Points</th>
-                <th>Set en cours</th>
-                <th>Set 1</th>
-                <th>Set 2</th>
-                <th>Set 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td id="affichageNomJoueur1">Joueur 1</td>
-                <td id="scoreJeuJoueur1">0</td>
-                <td id="scoreSetEnCoursJoueur1">0</td>
-                <td id="jeuSet1Joueur1">0</td>
-                <td id="jeuSet2Joueur1">0</td>
-                <td id="jeuSet3Joueur1">0</td>
-              </tr>
-              <tr>
-                <td id="affichageNomJoueur2">Joueur 2</td>
-                <td id="scoreJeuJoueur2">0</td>
-                <td id="scoreSetEnCoursJoueur2">0</td>
-                <td id="jeuSet1Joueur2">0</td>
-                <td id="jeuSet2Joueur2">0</td>
-                <td id="jeuSet3Joueur2">0</td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
+    <div id="fenetrePrincipale">
+        <div class="grillePanneauScore" id="panneauScore">
+          <div class="celluleScore"><div id="nomsJoueurs">Nom des Joueurs</div></div>
+          <div class="celluleScore"><div id="points">Points</div></div>
+          <div class="celluleScore"><div id="setEnCours">Set En Cours</div></div>
+          <div class="celluleScore"><div id="set1">Set 1</div></div>
+          <div class="celluleScore"><div id="set2">Set 2</div></div>
+          <div class="celluleScore"><div id="set3">Set 3</div></div>
+          <div class="celluleScore"><div id="affichageNomJoueur1">Joueur 1</div></div>
+          <div class="celluleScore"><div id="scoreJeuJoueur1">0</div></div>
+          <div class="celluleScore"><div id="scoreSetEnCoursJoueur1">0</div></div>
+          <div class="celluleScore"><div id="jeuSet1Joueur1">0</div></div>
+          <div class="celluleScore"><div id="jeuSet2Joueur1">0</div></div>
+          <div class="celluleScore"><div id="jeuSet3Joueur1">0</div></div>
+          <div class="celluleScore"><div id="affichageNomJoueur2">Joueur 2</div></div>
+          <div class="celluleScore"><div id="scoreJeuJoueur2">0</div></div>
+          <div class="celluleScore"><div id="scoreSetEnCoursJoueur2">0</div></div>
+          <div class="celluleScore"><div id="jeuSet1Joueur2">0</div></div>
+          <div class="celluleScore"><div id="jeuSet2Joueur2">0</div></div>
+          <div class="celluleScore"><div id="jeuSet3Joueur2">0</div></div>
+        </div>    
 
-    <div id="panneauBoutons">
-        <p id="affNomJoueur1"><strong>Joueur 1</strong></p>
-        <p id="affNomJoueur2"><strong>Joueur 2</strong></p>
-        <button id="plusJoueur1">+</button>
-        <button id="moinsJoueur1">-</button>
-        <button id="plusJoueur2">+</button>
-        <button id="moinsJoueur2">-</button>
-    </div>
+        <div id="panneauBoutons">
+            <div id="affNomJoueur1">Joueur 1</div>
+            <div id="affNomJoueur2">Joueur 2</div>
+            <button id="plusJoueur1">+</button>
+            <button id="moinsJoueur1">-</button>
+            <button id="plusJoueur2">+</button>
+            <button id="moinsJoueur2">-</button>
+        </div>
     
-    <div id="graphe">
-        <canvas id="monGraphique"></canvas>
+        <div id="graphe">
+            <canvas id="monGraphique"></canvas>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>

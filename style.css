@@ -16,10 +16,17 @@ form {
 }
 
 input {
+    border: 1px solid grey;
+    border-radius: 10px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+#nomJoueur1:hover, #nomJoueur2:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-out;
 }
 
 select {
@@ -30,49 +37,227 @@ select {
 }
 
 input[type=submit] {
-    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
     font-weight: bold;
     color: white;
     background-color: teal;
 }
 
-thead {
-    background-color: teal;
-    color: white;
-    height: 40px;
-    font-size: large;
-}
-
-tbody {
-    height: 80px;
-    font-weight: bold;
-}
-
-#panneauScore {
+#fenetrePrincipale {
+    display: grid;
     visibility: hidden;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 30% 40%;
+    grid-template-areas: 
+        "score"
+        "boutons"
+        "graphe";
+}
+
+.grillePanneauScore {
+    display: grid;
+    height: 20vh;
     padding: 10px;
     margin: 20px;
-    width: 95%;
-    column-width: auto;
+    margin-bottom: 10px;
     text-align: center;
+    grid-template-columns: 25% 15% 15% 15% 15% 15%;
+    grid-template-rows: 50% 25% 25%;
+    grid-template-areas:
+        "nomsJoueurs points setEnCours set1 set2 set3"
+        "affichageNomJoueur1 scoreJeuJoueur1 scoreSetEnCoursJoueur1 scoreSet1Joueur1 scoreSet2Joueur1 scoreSet3Joueur1"
+        "affichageNomJoueur2 scoreJeuJoueur2 scoreSetEnCoursJoueur2 scoreSet1Joueur2 scoreSet2Joueur2 scoreSet3Joueur2";
+    grid-area: score;
+}
+
+.celluleScore {
+    position: relative;
+}
+
+.celluleScore:nth-child(-n+6) {
+    background-color: teal;
+}
+
+.celluleScore:nth-child(1) {
+    border-radius: 15px 0 0 15px;
+}
+
+.celluleScore:nth-child(6) {
+    border-radius: 0 15px 15px 0;
+}
+
+#nomsJoueurs {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: nomsJoueurs;
+}
+
+#points {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: points;
+}
+
+#setEnCours {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: setEnCours;
+}
+
+#set1 {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: set1;
+}
+
+#set2 {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: set2;
+}
+
+#set3 {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    grid-area: set3;
+}
+
+#affichageNomJoueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: affichageNomJoueur1;
+}
+
+#scoreJeuJoueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreJeuJoueur1;
+}
+
+#scoreSetEnCoursJoueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSetEnCoursJoueur1;
+}
+
+#jeuSet1Joueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet1Joueur1;
+}
+
+#jeuSet2Joueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet2Joueur1;
+}
+
+#jeuSet3Joueur1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet3Joueur1;
+}
+
+#affichageNomJoueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: affichageNomJoueur2;
+}
+
+#scoreJeuJoueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreJeuJoueur2;
+}
+
+#scoreSetEnCoursJoueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSetEnCoursJoueur2;
+}
+
+#jeuSet1Joueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet1Joueur2;
+}
+
+#jeuSet2Joueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet2Joueur2;
+}
+
+#jeuSet3Joueur2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: scoreSet3Joueur2;
 }
 
 #panneauBoutons {
-    visibility: hidden;
     display: grid;
+    align-items: center;
+    height: 20vh;
     margin: 20px;
+    margin-top: 10px;
     padding: 10px;
     text-align: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.6fr 1.7fr 1.7fr;
+    grid-template-rows: 30% 35% 35%;
     grid-template-areas: 
         "j1 j2"
         "pj1 pj2"
         "mj1 mj2";
-}
-
-#graphe {
-    visibility: hidden;
+    grid-area: boutons;
 }
 
 #affNomJoueur1 {
@@ -80,7 +265,7 @@ tbody {
     font-weight: bold;
     color: mediumseagreen;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     grid-area: j1;
 }
 
@@ -89,7 +274,7 @@ tbody {
     font-weight: bold;
     color : steelblue;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     grid-area: j2;
 }
 
@@ -131,4 +316,8 @@ tbody {
     padding: 5px;
     grid-area: mj2;
     border-radius: 15px;
+}
+
+#graphe {
+    grid-area: graphe;
 }

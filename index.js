@@ -7,6 +7,7 @@ var formatMatch = document.getElementById('formatMatch');
 const valider = document.getElementById('valider');
 
 //Liaison des divisions masquées
+var fenetrePrincipale = document.getElementById('fenetrePrincipale');
 var panneauScore = document.getElementById('panneauScore');
 var panneauBoutons = document.getElementById('panneauBoutons');
 var graphe = document.getElementById('graphe');
@@ -44,9 +45,7 @@ valider.addEventListener('click', (e) => {
         //Modification de la page
         h1.style.display = "none";
         formulaire.style.display = "none";
-        panneauScore.style.visibility = "visible";
-        panneauBoutons.style.visibility = "visible";
-        graphe.style.visibility = "visible";
+        fenetrePrincipale.style.visibility = "visible";
     }
     else {
         alert('Veuillez rentrer un nom pour chaque joueur');

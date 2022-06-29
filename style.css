@@ -1,5 +1,7 @@
 body {
     background-color: beige;
+    height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -61,12 +63,12 @@ tbody {
     margin: 20px;
     padding: 10px;
     text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.6fr 1.7fr 1.7fr;
     grid-template-areas: 
-        "j1 j1 j2 j2"
-        "pj1 pj1 pj2 pj2"
-        "pj1 pj1 pj2 pj2"
-        "mj1 mj1 mj2 mj2"
-        "mj1 mj1 mj2 mj2";
+        "j1 j2"
+        "pj1 pj2"
+        "mj1 mj2";
 }
 
 #graphe {
@@ -95,7 +97,7 @@ tbody {
     background-color: mediumseagreen;
     font-size: 1.5rem;
     font-weight: bold;
-    height: 50px;
+    margin: 10px;
     padding: 5px;
     grid-area: pj1;
     border-radius: 15px;
@@ -105,7 +107,7 @@ tbody {
     background-color: mediumseagreen;
     font-size: 1.5rem;
     font-weight: bold;
-    height: 50px;
+    margin: 10px;
     padding: 5px;
     grid-area: mj1;
     border-radius: 15px;
@@ -115,7 +117,7 @@ tbody {
     background-color: steelblue;
     font-size: 1.5rem;
     font-weight: bold;
-    height: 50px;
+    margin: 10px;
     padding: 5px;
     grid-area: pj2;
     border-radius: 15px;
@@ -125,7 +127,7 @@ tbody {
     background-color: steelblue;
     font-size: 1.5rem;
     font-weight: bold;
-    height: 50px;
+    margin: 10px;
     padding: 5px;
     grid-area: mj2;
     border-radius: 15px;

@@ -60,8 +60,6 @@ input[type=submit] {
         "score"
         "boutons"
         "graphe";
-    justify-content: justify;
-    align-content: justify;
 }
 
 .grillePanneauScore {
@@ -309,6 +307,19 @@ input[type=submit] {
 
 #graphe {
     margin: 10px;
-    max-height: 450px;
+    max-height: 400px;
     grid-area: graphe;
+}
+
+@media screen and (min-width: 700px) {
+    #fenetrePrincipale {
+        display: grid;
+        visibility: hidden;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "score graphe"
+            "boutons graphe"
+            ". graphe";
+    }
 }

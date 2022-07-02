@@ -70,11 +70,29 @@ let nbreSetGagnéJoueur2 = 0;
 const listeScore = ["0", "15", "30", "40", "Av."];
 const listeJeu = ["0", "1", "2", "3", "4", "5", "6", "7"];
 
+//Déclaration des valeurs de backup
+let backupPointJoueur1;
+let backupPointJoueur2;
+let backupJeuJoueur1;
+let backupJeuJoueur2;
+let backupNbreSetGagnéJoueur1;
+let backupNbreSetGagnéJoueur2;
+var backupSet1Joueur1 = "";
+var backupSet2Joueur1 = "";
+var backupSet3Joueur1 = "";
+var backupSet1Joueur2 = "";
+var backupSet2Joueur2 = "";
+var backupSet3Joueur2 = "";
+let backupNbrPointsPlayed;
+let backupPointGrapheJoueur1;
+let backupPointGrapheJoueur2;
+
 //Déclaration des 4 boutons
 const plusJoueur1 = document.getElementById("plusJoueur1");
 const moinsJoueur1 = document.getElementById("moinsJoueur1");
 const plusJoueur2 = document.getElementById("plusJoueur2");
 const moinsJoueur2 = document.getElementById("moinsJoueur2");
+const annuler = document.getElementById("annuler");
 
 //Déclaration des variables pour le graphe
 var nbrPointsPlayed = 0;
@@ -111,6 +129,25 @@ const myChart = new Chart(
 
 //Action à éxécuter si le bouton + joueur 1 est cliqué
 plusJoueur1.addEventListener("click", () => {
+    //On stocke les valeurs actuelles dans le backup
+    backupPointJoueur1 = pointJoueur1;
+    backupPointJoueur2 = pointJoueur2
+    backupJeuJoueur1 = jeuJoueur1;
+    backupJeuJoueur2 = jeuJoueur2;
+    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
+    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
+
+    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
+    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
+    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
+    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
+    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
+    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
+
+    backupNbrPointsPlayed = nbrPointsPlayed;
+    backupPointGrapheJoueur1 = pointGrapheJoueur1;
+    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
         if (jeuJoueur1 == 6 && jeuJoueur2 == 6) {
@@ -146,14 +183,33 @@ plusJoueur1.addEventListener("click", () => {
     //Action sur le graphe
     nbrPointsPlayed++;
     pointGrapheJoueur1++;
-    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur1}`});
-    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur2}`});
+    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur1}`});
+    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur2}`});
     myChart.update();
     myChart.update();
 });
 
 //Action à éxécuter si le bouton - joueur 1 est cliqué
 moinsJoueur1.addEventListener("click", () => {
+    //On stocke les valeurs actuelles dans le backup
+    backupPointJoueur1 = pointJoueur1;
+    backupPointJoueur2 = pointJoueur2
+    backupJeuJoueur1 = jeuJoueur1;
+    backupJeuJoueur2 = jeuJoueur2;
+    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
+    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
+
+    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
+    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
+    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
+    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
+    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
+    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
+
+    backupNbrPointsPlayed = nbrPointsPlayed;
+    backupPointGrapheJoueur1 = pointGrapheJoueur1;
+    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
         if (jeuJoueur1 == 6 && jeuJoueur2 == 6) {
@@ -189,14 +245,33 @@ moinsJoueur1.addEventListener("click", () => {
     //Action sur le graphe
     nbrPointsPlayed++;
     pointGrapheJoueur1--;
-    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur1}`});
-    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur2}`});
+    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur1}`});
+    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur2}`});
     myChart.update();
     myChart.update();
 });
 
 //Action à éxécuter si le bouton + joueur 2 est cliqué
 plusJoueur2.addEventListener("click", () => {
+    //On stocke les valeurs actuelles dans le backup
+    backupPointJoueur1 = pointJoueur1;
+    backupPointJoueur2 = pointJoueur2
+    backupJeuJoueur1 = jeuJoueur1;
+    backupJeuJoueur2 = jeuJoueur2;
+    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
+    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
+
+    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
+    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
+    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
+    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
+    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
+    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
+
+    backupNbrPointsPlayed = nbrPointsPlayed;
+    backupPointGrapheJoueur1 = pointGrapheJoueur1;
+    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
         if (jeuJoueur1 == 6 && jeuJoueur2 == 6) {
@@ -232,14 +307,33 @@ plusJoueur2.addEventListener("click", () => {
     //Action sur le graphe
     nbrPointsPlayed++;
     pointGrapheJoueur2++;
-    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur1}`});
-    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur2}`});
+    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur1}`});
+    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur2}`});
     myChart.update();
     myChart.update();
 });
 
 //Action à éxécuter si le bouton - joueur 2 est cliqué
 moinsJoueur2.addEventListener("click", () => {
+    //On stocke les valeurs actuelles dans le backup
+    backupPointJoueur1 = pointJoueur1;
+    backupPointJoueur2 = pointJoueur2
+    backupJeuJoueur1 = jeuJoueur1;
+    backupJeuJoueur2 = jeuJoueur2;
+    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
+    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
+
+    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
+    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
+    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
+    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
+    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
+    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
+
+    backupNbrPointsPlayed = nbrPointsPlayed;
+    backupPointGrapheJoueur1 = pointGrapheJoueur1;
+    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
         if (jeuJoueur1 == 6 && jeuJoueur2 == 6) {
@@ -275,11 +369,41 @@ moinsJoueur2.addEventListener("click", () => {
     //Action sur le graphe
     nbrPointsPlayed++;
     pointGrapheJoueur2--;
-    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur1}`});
-    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText}`, y:`${pointGrapheJoueur2}`});
+    data.datasets[0].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur1}`});
+    data.datasets[1].data.push({x:`${scoreJeuJoueur1.innerText}/${scoreJeuJoueur2.innerText} ${jeuSet1Joueur1.innerText}/${jeuSet1Joueur2.innerText} ${jeuSet2Joueur1.innerText}/${jeuSet2Joueur2.innerText} ${jeuSet3Joueur1.innerText}/${jeuSet3Joueur2.innerText} (${nbrPointsPlayed})`, y:`${pointGrapheJoueur2}`});
     myChart.update();
     myChart.update();
 });
+
+annuler.addEventListener('click', () => {
+    //On récupère les anciennes valeurs des différentes variables
+    pointJoueur1 = backupPointJoueur1;
+    pointJoueur2 = backupPointJoueur2
+    jeuJoueur1 = backupJeuJoueur1;
+    jeuJoueur2 = backupJeuJoueur2;
+    nbreSetGagnéJoueur1 = backupNbreSetGagnéJoueur1;
+    nbreSetGagnéJoueur2 = backupNbreSetGagnéJoueur2;
+
+    //On rétablit l'affichage du score
+    scoreJeuJoueur1.textContent = listeScore[pointJoueur1];
+    scoreJeuJoueur2.textContent = listeScore[pointJoueur2];
+    jeuSet1Joueur1.textContent = backupSet1Joueur1;
+    jeuSet2Joueur1.textContent = backupSet2Joueur1;
+    jeuSet3Joueur1.textContent = backupSet3Joueur1;
+    jeuSet1Joueur2.textContent = backupSet1Joueur2;
+    jeuSet2Joueur2.textContent = backupSet2Joueur2;
+    jeuSet3Joueur2.textContent = backupSet3Joueur2;
+
+    //On récupère les anciennes valeurs du graphe
+    nbrPointsPlayed = backupNbrPointsPlayed;
+    pointGrapheJoueur1 = backupPointGrapheJoueur1;
+    pointGrapheJoueur2 = backupPointGrapheJoueur2;
+
+    //On enlève la dernière entrée du graphe
+    data.datasets[0].data.pop();
+    data.datasets[1].data.pop();
+    myChart.update();
+})
 
 function joueur1MarqueLePointNoAd() {
     // Le Joueur 1 marque le point

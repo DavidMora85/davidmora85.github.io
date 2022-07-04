@@ -5,6 +5,7 @@ var nomJoueur1 = document.getElementById('nomJoueur1');
 var nomJoueur2 = document.getElementById('nomJoueur2');
 var formatMatch = document.getElementById('formatMatch');
 const valider = document.getElementById('valider');
+var faq = document.getElementById('faq');
 
 //Liaison des divisions masquées
 var fenetrePrincipale = document.getElementById('fenetrePrincipale');
@@ -45,6 +46,7 @@ valider.addEventListener('click', (e) => {
         //Modification de la page
         h1.style.display = "none";
         formulaire.style.display = "none";
+        faq.style.display = "none";
         fenetrePrincipale.style.visibility = "visible";
     }
     else {
@@ -130,23 +132,7 @@ const myChart = new Chart(
 //Action à éxécuter si le bouton + joueur 1 est cliqué
 plusJoueur1.addEventListener("click", () => {
     //On stocke les valeurs actuelles dans le backup
-    backupPointJoueur1 = pointJoueur1;
-    backupPointJoueur2 = pointJoueur2
-    backupJeuJoueur1 = jeuJoueur1;
-    backupJeuJoueur2 = jeuJoueur2;
-    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
-    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
-
-    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
-    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
-    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
-    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
-    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
-    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
-
-    backupNbrPointsPlayed = nbrPointsPlayed;
-    backupPointGrapheJoueur1 = pointGrapheJoueur1;
-    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+    mettreEnBackup();
 
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
@@ -192,23 +178,7 @@ plusJoueur1.addEventListener("click", () => {
 //Action à éxécuter si le bouton - joueur 1 est cliqué
 moinsJoueur1.addEventListener("click", () => {
     //On stocke les valeurs actuelles dans le backup
-    backupPointJoueur1 = pointJoueur1;
-    backupPointJoueur2 = pointJoueur2
-    backupJeuJoueur1 = jeuJoueur1;
-    backupJeuJoueur2 = jeuJoueur2;
-    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
-    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
-
-    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
-    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
-    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
-    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
-    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
-    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
-
-    backupNbrPointsPlayed = nbrPointsPlayed;
-    backupPointGrapheJoueur1 = pointGrapheJoueur1;
-    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+    mettreEnBackup();
 
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
@@ -254,23 +224,7 @@ moinsJoueur1.addEventListener("click", () => {
 //Action à éxécuter si le bouton + joueur 2 est cliqué
 plusJoueur2.addEventListener("click", () => {
     //On stocke les valeurs actuelles dans le backup
-    backupPointJoueur1 = pointJoueur1;
-    backupPointJoueur2 = pointJoueur2
-    backupJeuJoueur1 = jeuJoueur1;
-    backupJeuJoueur2 = jeuJoueur2;
-    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
-    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
-
-    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
-    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
-    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
-    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
-    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
-    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
-
-    backupNbrPointsPlayed = nbrPointsPlayed;
-    backupPointGrapheJoueur1 = pointGrapheJoueur1;
-    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+    mettreEnBackup();
 
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
@@ -316,23 +270,7 @@ plusJoueur2.addEventListener("click", () => {
 //Action à éxécuter si le bouton - joueur 2 est cliqué
 moinsJoueur2.addEventListener("click", () => {
     //On stocke les valeurs actuelles dans le backup
-    backupPointJoueur1 = pointJoueur1;
-    backupPointJoueur2 = pointJoueur2
-    backupJeuJoueur1 = jeuJoueur1;
-    backupJeuJoueur2 = jeuJoueur2;
-    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
-    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
-
-    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
-    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
-    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
-    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
-    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
-    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
-
-    backupNbrPointsPlayed = nbrPointsPlayed;
-    backupPointGrapheJoueur1 = pointGrapheJoueur1;
-    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+    mettreEnBackup();
 
     //Action sur le score
     if (valeurFormatMatch == 'format1') {
@@ -374,6 +312,26 @@ moinsJoueur2.addEventListener("click", () => {
     myChart.update();
     myChart.update();
 });
+
+function mettreEnBackup() {
+    backupPointJoueur1 = pointJoueur1;
+    backupPointJoueur2 = pointJoueur2
+    backupJeuJoueur1 = jeuJoueur1;
+    backupJeuJoueur2 = jeuJoueur2;
+    backupNbreSetGagnéJoueur1 = nbreSetGagnéJoueur1;
+    backupNbreSetGagnéJoueur2 = nbreSetGagnéJoueur2;
+
+    backupSet1Joueur1 = jeuSet1Joueur1.textContent;
+    backupSet2Joueur1 = jeuSet2Joueur1.textContent;
+    backupSet3Joueur1 = jeuSet3Joueur1.textContent;
+    backupSet1Joueur2 = jeuSet1Joueur2.textContent;
+    backupSet2Joueur2 = jeuSet2Joueur2.textContent;
+    backupSet3Joueur2 = jeuSet3Joueur2.textContent;
+
+    backupNbrPointsPlayed = nbrPointsPlayed;
+    backupPointGrapheJoueur1 = pointGrapheJoueur1;
+    backupPointGrapheJoueur2 = pointGrapheJoueur2;
+}
 
 annuler.addEventListener('click', () => {
     //On récupère les anciennes valeurs des différentes variables

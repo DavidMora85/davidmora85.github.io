@@ -31,7 +31,7 @@ input {
     box-sizing: border-box;
 }
 
-#nomJoueur1:hover, #nomJoueur2:hover {
+#nomJoueur1:hover, #nomJoueur2:hover, #valider:hover {
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.1s ease-out;
 }
@@ -345,6 +345,7 @@ input[type=submit] {
 #graphe {
     margin: 10px;
     max-height: 450px;
+    box-sizing: border-box;
     grid-area: graphe;
 }
 
@@ -359,4 +360,10 @@ input[type=submit] {
             "boutons graphe"
             ". graphe";
     }
+}
+
+.faq {
+    text-align: center;
+    color: black;
+    text-decoration: none;
 }
